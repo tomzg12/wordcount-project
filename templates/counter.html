@@ -1,0 +1,36 @@
+
+
+<h1>COUNTER</h1>
+
+<!--BUTTOM-->
+<form action= {% url 'home' %}>     <!-- Set the reference using URL name´s-->
+    <input type = "submit" value = "Go back to input a new text!" />
+</form>
+
+<!--HEADER (COUNT WORDS NUMBER)-->
+<h2>There are {{ count }} words in your text</h2>
+<br>
+<!--SHOW TEXT INPUT-->
+<h3> Your text: </h3>
+{{ fulltext }}  <!-- Variable from input form text-->
+<br>
+<br>
+<!--WORD BY WORD COUNTER-->
+<h3>Word count:</h3>
+
+<!--FIRST WAY TO CALL A FUNCTION (JUST BY NAME) AND DECLARE THE FUNCTION IN VIEWS PAGE-->
+<!--{{ sortedwords }}-->
+
+<!--EXAMPLE OF LOOP IN HTML (ANOTHER WAY IS WRITTING DIRECTLY INSIDE OF THE VIEWS FUNCTIONs-->
+
+    <!--Create a table with HTML Power-->
+<table border = "1", style="width:20%">
+
+{% for word, counttotal in sortedwords %}
+<tr>
+    <td> {{ word }}       </th> 
+       
+    <td> {{ counttotal }} </th>
+</tr>
+{% endfor %}
+</table>
